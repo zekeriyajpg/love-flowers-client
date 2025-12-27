@@ -1,38 +1,77 @@
-.App {
-  text-align: center;
-}
+* { box-sizing: border-box; }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.ekran{
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background: radial-gradient(circle at top, #1b2a3a, #0b1220 65%);
   color: white;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto;
 }
 
-.App-link {
-  color: #61dafb;
+.ust{
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 10;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 14px 14px;
+  border-radius: 14px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.baslik{ font-weight: 700; font-size: 16px; margin-bottom: 6px; }
+.sayac{ opacity: 0.9; font-size: 14px; margin-bottom: 4px; }
+.ipucu{ opacity: 0.7; font-size: 12px; }
+
+.cicek{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  pointer-events: none;
+  animation: pop 220ms ease-out;
+}
+
+@keyframes pop{
+  from { transform: translate(-50%, -50%) scale(0.7); opacity: 0.6; }
+  to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+.merkez{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #ffd36a;
+  box-shadow: 0 0 18px rgba(255, 211, 106, 0.55);
+  z-index: 2;
+}
+
+.yaprak{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 18px;
+  height: 42px;
+  transform-origin: 50% 90%;
+  border-radius: 999px;
+  background: var(--renk);
+  box-shadow: 0 0 14px rgba(255,255,255,0.08);
+  transform: translate(-50%, -92%) rotate(calc(var(--i) * 30deg)) scaleY(0);
+  animation: bloom 850ms cubic-bezier(.2,.9,.2,1) forwards;
+  animation-delay: calc(var(--i) * 20ms);
+  opacity: 0.95;
+}
+
+@keyframes bloom{
+  0%   { transform: translate(-50%, -92%) rotate(calc(var(--i) * 30deg)) scaleY(0.05); }
+  55%  { transform: translate(-50%, -92%) rotate(calc(var(--i) * 30deg)) scaleY(1.05); }
+  100% { transform: translate(-50%, -92%) rotate(calc(var(--i) * 30deg)) scaleY(1); }
 }
