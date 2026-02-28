@@ -44,11 +44,7 @@ export default function App() {
   return (
     <div className="ekran" onClick={tikla}>
       <div className="ust">
-        <div className="baslik">
-          Uzak olsak da dokunuşun çiçek açtırıyor 🌼
-        </div>
         <div className="sayac">Açan çiçek: {sayac}</div>
-        
       </div>
 
       {cicekler.map((c) => (
